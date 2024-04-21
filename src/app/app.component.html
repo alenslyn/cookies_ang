@@ -59,7 +59,7 @@
       <div class="products_items">
         <div class="products_item" *ngFor="let product of productsData">
           <div class="products_item_image">
-            <img src="./assets/images/{{ product.image }}" alt="Product" />
+            <img src="{{ product.image }}" alt="Product" />
           </div>
           <div class="products_item_details">
             <div class="products_item_title">{{ product.title }}</div>
@@ -73,7 +73,10 @@
                 </div>
                 <div class="products_item_weight">{{ product.weight }}</div>
               </div>
-              <button class="button violet_button" (click)="scrollTo(order)">
+              <button
+                class="button violet_button"
+                (click)="scrollTo(order, product)"
+              >
                 Заказать
               </button>
             </div>
@@ -112,7 +115,7 @@
     <div class="container">
       <div class="common_title">Закажите печенье</div>
       <img
-        src="images/breadcrumbs.png"
+        src="./assets/images/breadcrumbs.png"
         alt="Breadcrumbs"
         class="order_bg_image"
       />
@@ -133,6 +136,7 @@
                   form.get('product')?.invalid &&
                   (form.get('product')?.dirty || form.get('product')?.touched)
               }"
+              readonly
             />
             <input
               type="text"
