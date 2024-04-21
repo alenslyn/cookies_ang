@@ -6,6 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  currency = '$';
+
   productsData = [
     {
       image: '1.png',
@@ -107,5 +109,28 @@ export class AppComponent {
 
   scrollTo(target: HTMLElement) {
     target.scrollIntoView({ behavior: 'smooth' });
+  }
+  changeCurrency() {
+    let newCurrency = '$';
+    let coefficient = 1;
+
+    if (this.currency === '$') {
+      newCurrency = '₽';
+      coefficient = 90;
+    } else if (this.currency === '₽') {
+      newCurrency = 'BYN';
+      coefficient = 3;
+    } else if (this.currency === 'BYN') {
+      newCurrency = '€';
+      coefficient = 0.9;
+    } else if (this.currency === '€') {
+      newCurrency = '¥';
+      coefficient = 6.9;
+    }
+    this.currency = newCurrency;
+
+    this.productsData.forEach((item: any) => {
+      item.price = +(item.basePrice * coefficient).toFixed(1);
+    });
   }
 }
