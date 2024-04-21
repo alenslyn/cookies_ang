@@ -15,6 +15,7 @@ yarn-error.log
 .idea/
 .project
 .vscode
+.angular
 .classpath
 .c9/
 *.launch
