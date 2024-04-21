@@ -1,4 +1,3 @@
-
 .main {
   position: relative;
   overflow: hidden;
@@ -305,4 +304,8 @@
   z-index: -1;
   top: -920px;
   left: 0;
+}
+
+.order_form_inputs input.error {
+  border-color: red;
 }
