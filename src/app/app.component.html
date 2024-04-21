@@ -56,6 +56,12 @@
     <div class="container">
       <img src="./assets/images/line2.png" alt="Line" class="line2" />
       <div class="common_title">Выберите печенье</div>
+      <div class="sugar-free">
+        <div>Все</div>
+        <input type="checkbox" id="switch" (change)="switchSugarFree($event)" />
+        <label for="switch"></label>
+        <div>Без сахара</div>
+      </div>
       <div class="products_items">
         <div class="products_item" *ngFor="let product of productsData">
           <div class="products_item_image">
